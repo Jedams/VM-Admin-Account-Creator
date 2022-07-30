@@ -2,8 +2,8 @@
 $myVMNameCSV = Import-Csv "./myVMNameCSV.csv"
 
 foreach ($LINE in $myVMNameCSV) {
-    Enable-AzVMPSRemoting -Name ($LINE.VMName) -ResourceGroupName ($LINE.ResourceGroup)-Protocol https -OsType Windows
+    Enable-AzVMPSRemoting -Name ($LINE.VmName) -ResourceGroupName ($LINE.ResourceGroupName)-Protocol https -OsType Windows
 
-    Invoke-AzVMRunCommand -ResourceGroupName ($LINE.ResourceGroup) -Name ($LINE.VMName) -CommandId 'RunPowerShellScript' -ScriptPath './AccountCreation.ps1'
+    Invoke-AzVMRunCommand -ResourceGroupName ($LINE.ResourceGroupName) -Name ($LINE.VmName) -CommandId 'RunPowerShellScript' -ScriptPath './AccountCreation.ps1'
 }
 
