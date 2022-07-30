@@ -1,0 +1,1 @@
+New-LocalUser -Password ( ConvertTo-SecureString -AsPlainText -Force 'Your Password Here') -Name 'Your User Name Here.' | Add-LocalGroupMember -Group administrators
